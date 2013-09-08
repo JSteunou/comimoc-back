@@ -6,13 +6,12 @@ from setuptools import setup, find_packages
 
 
 setup(name='comimoc',
-      version='0.9.3',
-      description='Comimoc backend for Comimoc',
-      long_description=open('README.md').read(),
+      version='1.0.0',
+      description='Comimoc backend for Comimoc project',
       author='Jérôme Steunou',
       author_email='contact@jeromesteunou.net',
       packages=find_packages(),
       include_package_data=True,
-      url='',
+      url='https://github.com/JSteunou/comimoc-back',
       install_requires=[str(r.req) for r in parse_requirements('requirements.txt')]
      )
