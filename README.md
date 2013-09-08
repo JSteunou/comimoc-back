@@ -1,6 +1,6 @@
 # Comimoc Back
 
-Comimoc Back is the backend part of the Comimoc project.
+Comimoc Back is the back-end part of the Comimoc project.
 
 It is a light backend that provide a RESTful API to handle comments and a UI for easy administration.
 
@@ -21,13 +21,13 @@ It uses MongoDB to store data and it is built with [Flask](http://flask.pocoo.or
 
 ## install it
 
-Then you just `pip install comimoc` or git clone https://github.com/JSteunou/comimoc-back
+Just `pip install comimoc` or get the source on https://github.com/JSteunou/comimoc-back
 
 ## run it
 
-The Flask application is available through `comimoc.create_app(options)` which will return you a Flask app you could use with every WSGI capable server. So all you have to do is to give your settings and get back the app to expose it.
+The Flask application is available through `comimoc.create_app(options)` which will return you a Flask app you could use with every WSGI capable server. So all you have to do is to give it your settings and get back the app to expose it.
 
-Example with a file mycomimoc.py
+Example with a file *mycomimoc.py*
 
 ```python
 from comimoc import create_app
@@ -56,7 +56,7 @@ More information about [how deploying a Flask app](http://flask.pocoo.org/docs/d
 
 **About the SECRET_KEY**
 
-Do not forget to provide your own. The application just won't work without it. It needs it for CSRF and cookie protection. You can easly create one with python:
+Do not forget to provide your own. The application just won't work without it. It needs it for CSRF and cookie protection. You can easily create one with python:
 
 ```python
 >>> import os
@@ -66,9 +66,9 @@ Do not forget to provide your own. The application just won't work without it. I
 
 
 
-## settings
+## set it
 
-The options must give when creating the application can contains all [Flask](http://flask.pocoo.org/docs/config/#builtin-configuration-values) and [Flask-MongoEngine settings](https://flask-mongoengine.readthedocs.org/en/latest/) plus the Comimoc settings
+The options you have to give when creating the application can contain all [Flask](http://flask.pocoo.org/docs/config/#builtin-configuration-values) and [Flask-MongoEngine settings](https://flask-mongoengine.readthedocs.org/en/latest/) settings in addition to the Comimoc settings.
 
 * **USE\_CORS**: Boolean. Use [cross origin resource sharing](https://developer.mozilla.org/en-US/docs/HTTP/Access_control_CORS) by adding HTTP Headers depending on the **CORS\_\*** settings below. This allow you to have the front-end and the back-end on different domains. Very useful for multiple front and one back-end. *default: True*.
 * **CORS\_ALLOW\_ORIGIN\_WHITELIST**: List of string. List of your front-end URL if you set **USE\_CORS** on `True`. Do not forget the scheme (http://, https://). Tips: you may need to add the root domain and the www subdomain if your site is available on both. *default: ()* (empty).
@@ -77,7 +77,39 @@ The options must give when creating the application can contains all [Flask](htt
 * **CORS\_ALLOW\_HEADERS**: String. Used in response to a preflight request to indicate which HTTP headers can be used when making the actual request. Default value works fine with Comimoc Front, but you may adapt it to your situation especially if you are using custom HTTP headers. *default: 'content-type, accept, origin'*.
 * **ADMIN\_EMAILS**: List of string. By default only the first user registered is automatically an administrator. Others are just registered but have no access. If you fear for your app security or do not want to check by hand all the users that should automatically be admin add here a list of admin emails. *default: ()* (empty).
 
+So the minimal settings you have to set are the `SECRET_KEY` and the `MONGODB_SETTINGS`.
+
 ## use it
 
-For getting and posting comments, best is to use it with Comimoc Front which is an AngularJS application easily customisable
+For getting and posting comments, best is to use it with Comimoc Front which is an AngularJS application easily customisable.
 
+The admin GUI is available at `/admin` and should ask to register a user the first time you go on it. The first user registered will be an admin by default, unless you set a list of allowed administrators email, in this case, only matching user will be set as administrator.
+
+## develop my own front-end
+
+The API is very simple for now:
+
+* `GET /comments?website=''&page=''` should return all comments matching the page for the website id given.
+```javascript
+{
+    comments: []
+}
+```
+* `POST /comments` should return the saved comment.
+```javascript
+{
+  "id": "522cba7897b60e713cd1bae5",
+  "page": "/cool_story_bro.html",
+  "website": "www.domain.com",
+  "author_email": "d10ca8d11301c2f4993ac2279ce4b930", // md5 gravatar suitable email
+  "author_name": "Jérôme Steunou",                    // author name
+  "author_website": null,                             // author website (not mandatory)
+  "content": "Endeed.",                               // the comment itself
+  "when": "Sun, 08 Sep 2013 17:57:12 GMT"             // date in [RTC 822](http://tools.ietf.org/html/rfc822.html)
+}
+
+# Why Comimoc?
+
+Comimoc stands for COMments In My Own Cloud. Because I wanted a commenting system for my blog, but as I create my blog with [Pelican](http://docs.getpelican.com/) to keep the control on my content and also having a very simmple system with tools I know very well (Python and Github) I wanted the same for my comments. But I did not find it. A lot of people goes for Disqus but this is giving data and control. So I create Comimoc which is very simple, light and can be run on your own server or at Heroku, Red Had Cloud OpenShift, ... And for nothing! For a simple blog, running Comimoc on PaaS services cost nothing and you can backup your comments everyday.
+
+So that's it, I made it and I share it so everyone can use it and keep control on as simple as comments data is.
