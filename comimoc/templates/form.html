@@ -1,0 +1,58 @@
+{% extends 'admin/master.html' %}
+{% block body %}
+
+<style type="text/css">
+    .form-signin {
+        border: 1px solid #D4D4D4;
+        border-radius: 4px 4px 4px 4px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+        margin:0 auto 20px;
+        max-width: 360px;
+    }
+    .form-signin .legend {
+        background-color: #FAFAFA;
+        background-image: linear-gradient(to bottom, #FFFFFF, #F2F2F2);
+        background-repeat: repeat-x;
+        border-bottom: 1px solid #D4D4D4;
+        padding-left: 20px;
+        color: #333333;
+        font-size: 21px;
+        line-height: 40px;
+   }
+   .form-signin .form-inner {
+        padding: 20px;
+   }
+   .form-signin input {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        min-height: 34px;
+        width: 100%;
+   }
+</style>
+
+
+<form method="POST" action="" class="form-signin">
+    <fieldset>
+        {{ form.name }}
+        {% if title %}
+        <div class="legend">{{ title }}</div>
+        {% endif %}
+        <div class="form-inner">
+            {{ form.hidden_tag() if form.hidden_tag }}
+            {% for field in form if field.type != 'CSRFTokenField' %}
+                <div class="control-group {{ "error" if field.errors }}">
+                    {{ field.label(class="control-label") }}
+                    <div class="controls">
+                        {{ field }}
+                        <span class="help-block">{{ field.errors|join(', ') }}</span>
+                    </div>
+                </div>
+            {% endfor %}
+            <button type="submit" class="btn">{{ title if title else "Submit" }}</button>
+        </div><!-- form-inner -->
+    </fieldset>
+</form>
+
+
+{% endblock %}

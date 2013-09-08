@@ -1,0 +1,16 @@
+{% extends 'admin/master.html' %}
+{% block body %}
+
+<div class="hero-unit text-center">
+    <h1>Welcome {{ login }}!</h1>
+    <p class="lead">
+{% if active %}
+    Finish working? You can logout.
+{% else %}
+    Ask your admin to activate your account.
+{% endif %}
+    </p>
+    <a class="btn btn-large btn-info" href="{{ url_for('.logout') }}">Logout</a>
+</div>
+
+{% endblock %}
