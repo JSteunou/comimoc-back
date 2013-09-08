@@ -4,10 +4,9 @@
 from pip.req import parse_requirements
 from setuptools import setup, find_packages
 
-from comimoc import __version__
 
 setup(name='comimoc',
-      version=__version__,
+      version='0.9.3',
       description='Comimoc backend for Comimoc',
       long_description=open('README.md').read(),
       author='Jérôme Steunou',

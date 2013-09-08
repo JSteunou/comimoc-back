@@ -1,4 +1,4 @@
 include *.md
 include *.txt
-include *.html
+recursive-include comimoc *.html
 include LICENSE
