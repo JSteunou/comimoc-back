@@ -126,7 +126,7 @@ The API is very simple for now:
   "author_email": "d10ca8d11301c2f4993ac2279ce4b930", // md5 gravatar suitable email
   "author_name": "Jérôme Steunou",                    // author name
   "author_website": null,                             // author website (not mandatory)
-  "content": "Endeed.",                               // the comment itself
+  "content": "Indeed.",                               // the comment itself
   "when": "Sun, 08 Sep 2013 17:57:12 GMT"             // date in [RTC 822](http://tools.ietf.org/html/rfc822.html)
 }
 ```
