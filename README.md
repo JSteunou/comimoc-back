@@ -114,7 +114,7 @@ The API is very simple for now:
 
 # Why Comimoc?
 
-Comimoc stands for **COM**ments **I**n **M**y **O**wn **C**loud. As I create my blog with [Pelican](http://docs.getpelican.com/) to keep the control on my content and also having a very simmple system with tools I know very well (Python and Github) I wanted the same for my comments. But I did not find it. A lot of people goes for Disqus but this is giving data and control. So I create Comimoc which is very simple, light and can be run on your own server or at Heroku, Red Had Cloud OpenShift, ... And for nothing! For a simple blog, running Comimoc on PaaS services cost nothing and you can backup your comments everyday.
+Comimoc stands for **COM**ments **I**n **M**y **O**wn **C**loud. As I create my blog with [Pelican](http://docs.getpelican.com/) to keep the control on my content and also having a very simple system with tools I know very well (Python and Github) I wanted the same for my comments. But I did not find it. A lot of people goes for Disqus but this is giving data and control. So I create Comimoc which is very simple, light and can be run on your own server or at Heroku, Red Had Cloud OpenShift, ... And for nothing! For a simple blog, running Comimoc on PaaS services cost nothing and you can backup your comments everyday.
 
 So that's it, I wrote it and I am sharing it so everyone can use it and keep control on their own data.
 
