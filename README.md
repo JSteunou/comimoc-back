@@ -68,16 +68,16 @@ Do not forget to provide your own. The application just won't work without it. I
 
 ## set it
 
-The options you have to give when creating the application can contain all [Flask](http://flask.pocoo.org/docs/config/#builtin-configuration-values) and [Flask-MongoEngine settings](https://flask-mongoengine.readthedocs.org/en/latest/) settings in addition to the Comimoc settings.
+The options you have to give when creating the application can contain all [Flask](http://flask.pocoo.org/docs/config/#builtin-configuration-values) and [Flask-MongoEngine](https://flask-mongoengine.readthedocs.org/en/latest/) settings in addition to the Comimoc settings.
 
-* **USE\_CORS**: Boolean. Use [cross origin resource sharing](https://developer.mozilla.org/en-US/docs/HTTP/Access_control_CORS) by adding HTTP Headers depending on the **CORS\_\*** settings below. This allow you to have the front-end and the back-end on different domains. Very useful for multiple front and one back-end. *default: True*.
+* **USE\_CORS**: Boolean. Use [cross origin resource sharing](https://developer.mozilla.org/en-US/docs/HTTP/Access_control_CORS) by adding HTTP Headers depending on the **CORS\_*** settings below. This allow you to have the front-end and the back-end on different domains. Very useful for multiple front and one back-end. *default: True*.
 * **CORS\_ALLOW\_ORIGIN\_WHITELIST**: List of string. List of your front-end URL if you set **USE\_CORS** on `True`. Do not forget the scheme (http://, https://). Tips: you may need to add the root domain and the www subdomain if your site is available on both. *default: ()* (empty).
 * **CORS\_ALLOW\_CREDENTIALS**: Boolean. Allow credentials. Mandatory if you want the browser to send cookie in CORS with preflight requests. Comimoc does not need it for now. *default: True*.
 * **CORS\_ALLOW\_METHODS**: String. Specifies the method or methods allowed when accessing the resource. It will be surprising if you have to change this one. *default: 'GET, POST, PUT, DELETE, OPTIONS'*.
 * **CORS\_ALLOW\_HEADERS**: String. Used in response to a preflight request to indicate which HTTP headers can be used when making the actual request. Default value works fine with Comimoc Front, but you may adapt it to your situation especially if you are using custom HTTP headers. *default: 'content-type, accept, origin'*.
 * **ADMIN\_EMAILS**: List of string. By default only the first user registered is automatically an administrator. Others are just registered but have no access. If you fear for your app security or do not want to check by hand all the users that should automatically be admin add here a list of admin emails. *default: ()* (empty).
 
-So the minimal settings you have to set are the `SECRET_KEY` and the `MONGODB_SETTINGS`.
+So the minimal settings you have to set are the `SECRET_KEY` and the `MONGODB_SETTINGS` if Comimoc back and front are accessible from the same domain. Add `CORS_ALLOW_ORIGIN_WHITELIST` if they are not.
 
 ## use it
 
@@ -90,12 +90,15 @@ The admin GUI is available at `/admin` and should ask to register a user the fir
 The API is very simple for now:
 
 * `GET /comments?website=''&page=''` should return all comments matching the page for the website id given.
+
 ```javascript
 {
     comments: []
 }
 ```
+
 * `POST /comments` should return the saved comment.
+
 ```javascript
 {
   "id": "522cba7897b60e713cd1bae5",
@@ -107,9 +110,10 @@ The API is very simple for now:
   "content": "Endeed.",                               // the comment itself
   "when": "Sun, 08 Sep 2013 17:57:12 GMT"             // date in [RTC 822](http://tools.ietf.org/html/rfc822.html)
 }
+```
 
 # Why Comimoc?
 
 Comimoc stands for COMments In My Own Cloud. Because I wanted a commenting system for my blog, but as I create my blog with [Pelican](http://docs.getpelican.com/) to keep the control on my content and also having a very simmple system with tools I know very well (Python and Github) I wanted the same for my comments. But I did not find it. A lot of people goes for Disqus but this is giving data and control. So I create Comimoc which is very simple, light and can be run on your own server or at Heroku, Red Had Cloud OpenShift, ... And for nothing! For a simple blog, running Comimoc on PaaS services cost nothing and you can backup your comments everyday.
 
-So that's it, I made it and I share it so everyone can use it and keep control on as simple as comments data is.
+So that's it, I wrote it and I am sharing it so everyone can use it and keep control on their own data.
