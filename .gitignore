@@ -1,3 +1,5 @@
 *.sublime*
 *.pyc
 dev_launcher.py
+dist/*
+*egg-info/*
