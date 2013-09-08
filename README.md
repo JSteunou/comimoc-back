@@ -7,9 +7,9 @@ It is a light backend that provide a RESTful API to handle comments and a UI for
 It uses MongoDB to store data and it is built with [Flask](http://flask.pocoo.org) + powerful extensions:
 
 * [Flask-Admin](https://github.com/mrjoes/flask-admin/)
-* [Flask-Login]()
-* [Flask-MongoEngine](https://github.com/MongoEngine/flask-mongoengine)
-* [Flask-WTF]()
+* [Flask-Login](https://github.com/maxcountryman/flask-login/)
+* [Flask-MongoEngine](https://github.com/MongoEngine/flask-mongoengine/)
+* [Flask-WTF](https://flask-wtf.readthedocs.org)
 
 # Features
 
@@ -93,7 +93,7 @@ The API is very simple for now:
 
 ```javascript
 {
-    comments: []
+    comments: [...]
 }
 ```
 
@@ -114,6 +114,12 @@ The API is very simple for now:
 
 # Why Comimoc?
 
-Comimoc stands for COMments In My Own Cloud. Because I wanted a commenting system for my blog, but as I create my blog with [Pelican](http://docs.getpelican.com/) to keep the control on my content and also having a very simmple system with tools I know very well (Python and Github) I wanted the same for my comments. But I did not find it. A lot of people goes for Disqus but this is giving data and control. So I create Comimoc which is very simple, light and can be run on your own server or at Heroku, Red Had Cloud OpenShift, ... And for nothing! For a simple blog, running Comimoc on PaaS services cost nothing and you can backup your comments everyday.
+Comimoc stands for **COM**ments **I**n **M**y **O**wn **C**loud. As I create my blog with [Pelican](http://docs.getpelican.com/) to keep the control on my content and also having a very simmple system with tools I know very well (Python and Github) I wanted the same for my comments. But I did not find it. A lot of people goes for Disqus but this is giving data and control. So I create Comimoc which is very simple, light and can be run on your own server or at Heroku, Red Had Cloud OpenShift, ... And for nothing! For a simple blog, running Comimoc on PaaS services cost nothing and you can backup your comments everyday.
 
 So that's it, I wrote it and I am sharing it so everyone can use it and keep control on their own data.
+
+# Source code
+
+You can access the source code at: https://github.com/JSteunou/comimoc-back
+
+Feel free to dive in, hack in, contribute or ask features (You can ask, I might not add it).
