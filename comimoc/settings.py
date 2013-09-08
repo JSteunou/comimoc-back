@@ -7,7 +7,7 @@ Default settings
 
 # do not forget to provide your own secret key
 # used for CSRF protection and Session cookies
-SECRET_KEY = '123456'
+SECRET_KEY = None
 
 # use cross origin resource sharing
 USE_CORS = True
