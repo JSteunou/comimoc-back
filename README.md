@@ -11,23 +11,44 @@ It uses MongoDB to store data and it is built with [Flask](http://flask.pocoo.or
 * [Flask-MongoEngine](https://github.com/MongoEngine/flask-mongoengine/)
 * [Flask-WTF](https://flask-wtf.readthedocs.org)
 
+
 # Features
 
 * Store simple comments for pages for as much as website you want
 * Provide a simple admin GUI on which you can handle your comments
 * Support multiple administrator
 
+
 # How to:
 
 ## install it
 
-Just `pip install comimoc` or get the source on https://github.com/JSteunou/comimoc-back
+You need MongoDB and python 2.7
+Then just `pip install comimoc` or get the source on https://github.com/JSteunou/comimoc-back
+
+Example in a [virtual env](http://www.virtualenv.org):
+
+```shell
+$ virtualenv ~/virtualenvs/comimoc
+$ cd ~/virtualenvs/comimoc
+$ . bin/activate
+(comimoc)$ pip install comimoc
+```
 
 ## run it
 
 The Flask application is available through `comimoc.create_app(options)` which will return you a Flask app you could use with every WSGI capable server. So all you have to do is to give it your settings and get back the app to expose it.
 
-Example with a file *mycomimoc.py*
+Example with [gunicorn](http://gunicorn.org):
+
+Still in our virtual env, install gunicorn and create a simple application creator.
+
+```shell
+(comimoc)$ pip install gunicorn
+(comimoc)$ touch mycomimoc.py
+```
+
+Paste this down in it
 
 ```python
 from comimoc import create_app
@@ -36,17 +57,13 @@ options = {
     "SECRET_KEY": "Your secret key goes here",
     "MONGODB_SETTINGS": {
         "DB": "comimoc",
-        "HOST": "http://domain.com",
-        "PORT": "123456",
-        "USERNAME": "admin",
-        "PASSWORD": "admin",
         },
-    "CORS_ALLOW_ORIGIN_WHITELIST": ('http://jeromesteunou.net', 'http://www.jeromesteunou.net')
+    "CORS_ALLOW_ORIGIN_WHITELIST": ('http://yourdomain.net', 'http://www.yourdomain.net')
 }
 flask_app = create_app(options)
 ```
 
-Then you can run gunicorn:
+And run gunicorn
 
 ```
 $ gunicorn mycomimoc:flask_app
@@ -63,8 +80,6 @@ Do not forget to provide your own. The application just won't work without it. I
 >>> os.urandom(24)
 '`\x13o\xb7N\xe8\x1ds\x04:Q\xeav\x10\xec\x06\xc7\x8fS\xe6)T1I'
 ```
-
-
 
 ## set it
 
@@ -112,11 +127,13 @@ The API is very simple for now:
 }
 ```
 
+
 # Why Comimoc?
 
 Comimoc stands for **COM**ments **I**n **M**y **O**wn **C**loud. As I create my blog with [Pelican](http://docs.getpelican.com/) to keep the control on my content and also having a very simple system with tools I know very well (Python and Github) I wanted the same for my comments. But I did not find it. A lot of people goes for Disqus but this is giving data and control. So I create Comimoc which is very simple, light and can be run on your own server or at Heroku, Red Had Cloud OpenShift, ... And for nothing! For a simple blog, running Comimoc on PaaS services cost nothing and you can backup your comments everyday.
 
 So that's it, I wrote it and I am sharing it so everyone can use it and keep control on their own data.
+
 
 # Source code
 
