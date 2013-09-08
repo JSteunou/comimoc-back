@@ -23,7 +23,7 @@ It uses MongoDB to store data and it is built with [Flask](http://flask.pocoo.or
 
 ## install it
 
-You need MongoDB and python 2.7
+You need MongoDB and python 2.7.
 Then just `pip install comimoc` or get the source on https://github.com/JSteunou/comimoc-back
 
 Example in a [virtual env](http://www.virtualenv.org):
@@ -65,11 +65,15 @@ flask_app = create_app(options)
 
 And run gunicorn
 
-```
-$ gunicorn mycomimoc:flask_app
+```shell
+(comimoc)$ gunicorn mycomimoc:flask_app
+2013-09-08 21:15:15 [24925] [INFO] Starting gunicorn 18.0
+2013-09-08 21:15:15 [24925] [INFO] Listening at: http://127.0.0.1:8000 (24925)
+2013-09-08 21:15:15 [24925] [INFO] Using worker: sync
+2013-09-08 21:15:15 [24930] [INFO] Booting worker with pid: 24930
 ```
 
-More information about [how deploying a Flask app](http://flask.pocoo.org/docs/deploying/others/)
+Et voilà, your comimoc back-end is running. Of course gunicorn can take many options and you might want to run a server in front like Apacha or Nginx. More information about [how deploying a Flask app](http://flask.pocoo.org/docs/deploying/others/)
 
 **About the SECRET_KEY**
 
