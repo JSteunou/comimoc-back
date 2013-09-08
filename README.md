@@ -95,6 +95,7 @@ The options you have to give when creating the application can contain all [Flas
 * **CORS\_ALLOW\_METHODS**: String. Specifies the method or methods allowed when accessing the resource. It will be surprising if you have to change this one. *default: 'GET, POST, PUT, DELETE, OPTIONS'*.
 * **CORS\_ALLOW\_HEADERS**: String. Used in response to a preflight request to indicate which HTTP headers can be used when making the actual request. Default value works fine with Comimoc Front, but you may adapt it to your situation especially if you are using custom HTTP headers. *default: 'content-type, accept, origin'*.
 * **ADMIN\_EMAILS**: List of string. By default only the first user registered is automatically an administrator. Others are just registered but have no access. If you fear for your app security or do not want to check by hand all the users that should automatically be admin add here a list of admin emails. *default: ()* (empty).
+* **CORS\_MAX\_AGE**: Integer. This indicates how long the results of a preflight request can be cached in seconds. *default: 1728000* (20 days).
 
 So the minimal settings you have to set are the `SECRET_KEY` and the `MONGODB_SETTINGS` if Comimoc back and front are accessible from the same domain. Add `CORS_ALLOW_ORIGIN_WHITELIST` if they are not.
 
