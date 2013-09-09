@@ -19,9 +19,9 @@ It uses MongoDB to store data and it is built with [Flask](http://flask.pocoo.or
 * Support multiple administrator
 
 
-# How to:
+# How to...
 
-## install it
+## install it?
 
 You need MongoDB and python 2.7.
 Then just `pip install comimoc` or get the source on https://github.com/JSteunou/comimoc-back
@@ -35,7 +35,7 @@ $ . bin/activate
 (comimoc)$ pip install comimoc
 ```
 
-## run it
+## run it?
 
 The Flask application is available through `comimoc.create_app(options)` which will return you a Flask app you could use with every WSGI capable server. So all you have to do is to give it your settings and get back the app to expose it.
 
@@ -85,7 +85,7 @@ Do not forget to provide your own. The application just won't work without it. I
 '`\x13o\xb7N\xe8\x1ds\x04:Q\xeav\x10\xec\x06\xc7\x8fS\xe6)T1I'
 ```
 
-## set it
+## set it?
 
 The options you have to give when creating the application can contain all [Flask](http://flask.pocoo.org/docs/config/#builtin-configuration-values) and [Flask-MongoEngine](https://flask-mongoengine.readthedocs.org/en/latest/) settings in addition to the Comimoc settings.
 
@@ -99,9 +99,9 @@ The options you have to give when creating the application can contain all [Flas
 
 So the minimal settings you have to set are the `SECRET_KEY` and the `MONGODB_SETTINGS` if Comimoc back and front are accessible from the same domain. Add `CORS_ALLOW_ORIGIN_WHITELIST` if they are not.
 
-## use it
+## use it?
 
-For getting and posting comments, best is to use it with Comimoc Front which is an AngularJS application easily customisable.
+For getting and posting comments, best is to use it with [Comimoc Front](https://github.com/JSteunou/comimoc-front-angularjs) which is an AngularJS application easily customisable. You can see it in action in my own [blog](http://www.jeromesteunou.net).
 
 The admin GUI is available at `/admin` and should ask to register a user the first time you go on it. The first user registered will be an admin by default, unless you set a list of allowed administrators email, in this case, only matching user will be set as administrator.
 
