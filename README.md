@@ -128,7 +128,7 @@ The API is very simple for now:
   "author_name": "Jérôme Steunou",                    // author name
   "author_website": null,                             // author website (not mandatory)
   "content": "Indeed.",                               // the comment itself
-  "when": "Sun, 08 Sep 2013 17:57:12 GMT"             // datetime in RTC 822 see http://tools.ietf.org/html/rfc822.html
+  "when": "Sun, 08 Sep 2013 17:57:12 GMT"             // datetime in RFC 822 see http://tools.ietf.org/html/rfc822.html
 }
 ```
 
