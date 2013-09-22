@@ -1,6 +1,6 @@
 # Comimoc Back
 
-Comimoc Back is the back-end part of the Comimoc project.
+Comimoc Back is the back-end part of the [Comimoc project](http://www.jeromesteunou.net/pages/comimoc.html).
 
 It is a light backend that provide a RESTful API to handle comments and a UI for easy administration.
 
